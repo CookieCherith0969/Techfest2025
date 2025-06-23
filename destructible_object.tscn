@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bordohq2ntr4e"]
+
+[ext_resource type="Script" uid="uid://bxbp5lmbl5rjn" path="res://destructible_object.gd" id="1_3jcet"]
+
+[node name="DestructibleObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_3jcet")

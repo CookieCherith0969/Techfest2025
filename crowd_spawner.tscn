@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cau5d0gvenbfo"]
+
+[ext_resource type="Script" uid="uid://dndebrkrakieh" path="res://crowd_spawner.gd" id="1_000gr"]
+
+[node name="CrowdSpawner" type="Marker2D"]
+script = ExtResource("1_000gr")
