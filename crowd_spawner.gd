@@ -3,7 +3,7 @@ extends Marker2D
 const person_scene: PackedScene = preload("res://swarm_person.tscn")
 
 @export
-var activate_on_ready: bool = true
+var activate_on_ready: bool = false
 
 @export
 var num_people: int = 6
@@ -24,7 +24,7 @@ func spawn():
 		var new_person = person_scene.instantiate()
 		var spawn_pos: Vector2 = Vector2.RIGHT.rotated(randf_range(0,2*PI))
 		spawn_pos *= randf_range(min_distance, max_distance)
-		new_person.position = position + spawn_pos
+		new_person.position = global_position + spawn_pos
 		if textures.size() > 0:
 			new_person.texture = textures.pick_random()
-		add_sibling.call_deferred(new_person)
+		get_tree().current_scene.add_child.call_deferred(new_person)
