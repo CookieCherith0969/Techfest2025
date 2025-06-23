@@ -6,6 +6,7 @@ static var instance: PlayerSwarm
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var charge_cooldown_timer = $ChargeCooldownTimer
 @onready var ring_sprite = $RingSprite
+@onready var camera_2d = $Camera2D
 
 @export var charge_cooldown_length: float = 2.0
 @export var charge_windup_time: float = 0.3
@@ -25,6 +26,10 @@ var area_per_person: float = 800
 
 const inactive_color: Color = Color.WEB_GRAY
 const active_color: Color = Color.WHITE
+var base_zoom: float = 0.1
+var radius_zoom_ratio: float = 0.01
+var target_zoom: float = 1.0
+var zoom_smooth_speed: float = 0.6
 
 func _ready():
 	instance = self
@@ -57,6 +62,9 @@ func charge():
 	charging = false
 
 func _physics_process(delta: float):
+	var new_zoom = move_toward(camera_2d.zoom.x,target_zoom, zoom_smooth_speed*delta)
+	camera_2d.zoom = Vector2(new_zoom, new_zoom)
+	
 	if charging:
 		velocity = velocity.move_toward(Vector2.ZERO, deceleration*delta)
 		var collision = move_and_collide(velocity*delta)
@@ -92,6 +100,7 @@ func get_radius() -> float:
 func set_radius(new_radius: float) -> void:
 	collision_shape_2d.shape.radius = new_radius
 	ring_sprite.scale = Vector2(new_radius/64.0, new_radius/64.0)
+	target_zoom = (1 / (base_zoom + new_radius*radius_zoom_ratio))
 
 func add_person(new_person: SwarmPerson):
 	swarming_people.append(new_person)
