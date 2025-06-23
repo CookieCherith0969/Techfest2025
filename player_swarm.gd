@@ -98,6 +98,7 @@ func _physics_process(delta: float):
 					swarming_people.remove_at(person_index)
 					removed_person.fling_remove()
 					num_people -= 1
+				update_radius()
 		return
 	
 	var input_dir: Vector2
@@ -122,6 +123,9 @@ func set_radius(new_radius: float) -> void:
 func add_person(new_person: SwarmPerson):
 	swarming_people.append(new_person)
 	num_people += 1
+	update_radius()
+
+func update_radius():
 	var new_area: float = area_per_person * num_people
 	set_radius(sqrt(new_area/PI))
 
