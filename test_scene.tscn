@@ -1,24 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=12 format=3 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="PackedScene" uid="uid://cau5d0gvenbfo" path="res://crowd_spawner.tscn" id="1_sasra"]
 [ext_resource type="PackedScene" uid="uid://b7aw6tx3k23m0" path="res://swarm_person.tscn" id="1_uhqqe"]
+[ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="2_buypi"]
 [ext_resource type="PackedScene" uid="uid://bsj2ncd8e5yqi" path="res://player_swarm.tscn" id="2_ia1lp"]
+[ext_resource type="Texture2D" uid="uid://frtfspwmb3uj" path="res://assets/characters/peasant2.png" id="3_njel3"]
 [ext_resource type="PackedScene" uid="uid://bordohq2ntr4e" path="res://destructible_object.tscn" id="4_2nij2"]
+[ext_resource type="Texture2D" uid="uid://cvxses2lxvk5s" path="res://assets/characters/peasant3.png" id="4_vr1i5"]
 [ext_resource type="Texture2D" uid="uid://ccoy4uybydy2c" path="res://icon.svg" id="5_7cbxl"]
+[ext_resource type="Texture2D" uid="uid://c2f4i4wxutylj" path="res://assets/characters/townsfolk1.png" id="9_vr1i5"]
+[ext_resource type="Texture2D" uid="uid://dhhsgt5jry17j" path="res://assets/characters/townsfolk2.png" id="10_rpuu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nij2"]
 size = Vector2(64, 64)
 
 [node name="TestScene" type="Node2D"]
+y_sort_enabled = true
 
 [node name="CrowdSpawner" parent="." instance=ExtResource("1_sasra")]
 position = Vector2(774, 156)
+textures = Array[Texture2D]([ExtResource("2_buypi"), ExtResource("3_njel3"), ExtResource("4_vr1i5")])
 
 [node name="PlayerSwarm" parent="." instance=ExtResource("2_ia1lp")]
 position = Vector2(542, 235)
 
 [node name="SwarmPerson7" parent="." instance=ExtResource("1_uhqqe")]
-position = Vector2(547, 231)
+position = Vector2(577, 230)
+texture = ExtResource("4_vr1i5")
 
 [node name="DestructibleObject" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(342, 112)
@@ -33,5 +41,6 @@ shape = SubResource("RectangleShape2D_2nij2")
 [node name="CrowdSpawner2" parent="." instance=ExtResource("1_sasra")]
 position = Vector2(342, 113)
 activate_on_ready = false
+textures = Array[Texture2D]([ExtResource("9_vr1i5"), ExtResource("10_rpuu0")])
 
 [connection signal="destroyed" from="DestructibleObject" to="CrowdSpawner2" method="spawn"]

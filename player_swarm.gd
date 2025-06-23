@@ -15,13 +15,16 @@ var mouse_moving: bool = false
 var charging: bool = false
 
 var deceleration: float = 50.0
-var acceleration: float = 100.0
+var acceleration: float = 140.0
 var max_speed: float = 100.0
 var charge_speed: float = 200.0
 
 var num_people: int = 0
 var swarming_people: Array[SwarmPerson] = []
 var area_per_person: float = 800
+
+const inactive_color: Color = Color.WEB_GRAY
+const active_color: Color = Color.WHITE
 
 func _ready():
 	instance = self
@@ -38,6 +41,7 @@ func _input(event):
 
 func charge():
 	charging = true
+	ring_sprite.modulate = inactive_color
 	await get_tree().create_timer(charge_windup_time).timeout
 	var charge_dir: Vector2
 	if mouse_moving:
@@ -87,7 +91,7 @@ func add_person(new_person: SwarmPerson):
 	var new_area: float = area_per_person * num_people
 	set_radius(sqrt(new_area/PI))
 	
-	var radius_add: float = 26.0
+	"""var radius_add: float = 26.0
 	var count_add: int = 8
 	var pos_radius: float = 0.0
 	var total_count: int = 0
@@ -117,9 +121,13 @@ func add_person(new_person: SwarmPerson):
 	var index = 0
 	for person in swarming_people:
 		person.swarm_offset = swarm_offsets[index]
-		index += 1
+		index += 1"""
 
 func _on_pickup_area_body_entered(body):
 	if body is SwarmPerson and !body.swarming:
 		body.swarming = true
 		add_person(body)
+
+
+func _on_charge_cooldown_timer_timeout():
+	ring_sprite.modulate = active_color
