@@ -52,7 +52,8 @@ var separation_distance: float = 30.0
 
 const nearby_swarm_check_num: int = 3
 var acceleration: float = 60.0
-var damping: float = 0.5
+var damping: float = 0.7
+var max_speed: float = 400.0
 
 var walk_speed_threshold: float = 10.0
 var flip_threshold: float = 12.0
@@ -89,6 +90,7 @@ func _physics_process(delta):
 			velocity = Vector2.ZERO
 	
 	velocity *= 1 - (damping*delta)
+	velocity = velocity.limit_length(max_speed)
 	
 	if animation_player.current_animation == "idle" and velocity.length() > walk_speed_threshold:
 		animation_player.play("RESET")
