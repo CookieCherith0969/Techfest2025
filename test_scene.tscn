@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=24 format=4 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="Texture2D" uid="uid://cspvlk5m5vvjn" path="res://assets/background/grass_sheet.png" id="1_rpuu0"]
 [ext_resource type="PackedScene" uid="uid://cau5d0gvenbfo" path="res://crowd_spawner.tscn" id="1_sasra"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://pemuqiaeegb8" path="res://assets/prompts/lmb_prompt.png" id="5_0k8yu"]
 [ext_resource type="Texture2D" uid="uid://ctyc20scsu5gj" path="res://assets/buildings/farm2.png" id="10_4gito"]
 [ext_resource type="Texture2D" uid="uid://b5mdljiurrttv" path="res://assets/buildings/farm1.png" id="11_fbuy2"]
+[ext_resource type="Texture2D" uid="uid://cu1fbgdav1cl8" path="res://wood_shards.png" id="15_hiucn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4gito"]
 texture = ExtResource("1_rpuu0")
@@ -68,6 +69,12 @@ physics_layer_0/collision_mask = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0k8yu"]
 size = Vector2(120, 124)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k6its"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nij2"]
 size = Vector2(120, 122)
@@ -221,6 +228,24 @@ texture = ExtResource("10_4gito")
 position = Vector2(-59, -6)
 shape = SubResource("RectangleShape2D_0k8yu")
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="DestructibleObject"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(-89, -35)
+emitting = false
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
 [node name="DestructibleObject2" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(638, 142)
 destroy_tax = 3
@@ -233,6 +258,24 @@ texture = ExtResource("11_fbuy2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject2"]
 position = Vector2(19, -75)
 shape = SubResource("RectangleShape2D_2nij2")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject2"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(-12, -45)
+emitting = false
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
 
 [node name="CrowdSpawner2" parent="." instance=ExtResource("1_sasra")]
 position = Vector2(247, 78)
