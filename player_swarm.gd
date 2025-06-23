@@ -7,18 +7,19 @@ static var instance: PlayerSwarm
 @onready var charge_cooldown_timer = $ChargeCooldownTimer
 @onready var ring_sprite = $RingSprite
 @onready var camera_2d = $Camera2D
+@onready var charge_ring = $RingSprite/ChargeRing
 
-@export var charge_cooldown_length: float = 2.0
-@export var charge_windup_time: float = 0.3
-@export var charge_lockout_time: float = 0.5
+var charge_cooldown_length: float = 1.5
+var charge_windup_time: float = 0.3
+var charge_lockout_time: float = 0.5
 
 var mouse_moving: bool = false
 var charging: bool = false
 
 var deceleration: float = 50.0
 var acceleration: float = 140.0
-var max_speed: float = 100.0
-var charge_speed: float = 200.0
+var max_speed: float = 150.0
+var charge_speed: float = 300.0
 
 var num_people: int = 0
 var swarming_people: Array[SwarmPerson] = []
@@ -26,42 +27,58 @@ var area_per_person: float = 800
 
 const inactive_color: Color = Color.WEB_GRAY
 const active_color: Color = Color.WHITE
-var base_zoom: float = 0.1
+var base_zoom: float = 0.2
 var radius_zoom_ratio: float = 0.01
 var target_zoom: float = 1.0
 var zoom_smooth_speed: float = 0.6
+var active: bool = false
+
+var using_mouse: bool = true
 
 func _ready():
 	instance = self
 
 func _input(event):
+	if event is InputEventMouse:
+		using_mouse = true
+	for action in ["Left","Right","Up","Down"]:
+		if event.is_action_pressed(action):
+			using_mouse = false
+	if !active:
+		return
 	if event.is_action_pressed("MouseMove"):
 		mouse_moving = true
 	elif event.is_action_released("MouseMove"):
 		mouse_moving = false
 	
 	if event.is_action_pressed("Charge") and charge_cooldown_timer.is_stopped():
-		charge_cooldown_timer.start(charge_cooldown_length)
 		charge()
 
 func charge():
 	charging = true
+	charge_cooldown_timer.start(charge_cooldown_length)
+	charge_ring.value = 0.0
+	var recharge_tween: Tween = create_tween()
+	recharge_tween.tween_property(charge_ring,"value",1.0,charge_cooldown_length)
 	ring_sprite.modulate = inactive_color
 	await get_tree().create_timer(charge_windup_time).timeout
 	var charge_dir: Vector2
-	if mouse_moving:
+	if using_mouse:
 		charge_dir = get_local_mouse_position().normalized()
 	else:
 		charge_dir = Input.get_vector("Left","Right","Up","Down")
 	if !charge_dir:
-		velocity.normalized()
+		charge_dir = velocity.normalized()
 	velocity = charge_dir*charge_speed
 	for person in swarming_people:
 		person.velocity += charge_dir*charge_speed
 	await get_tree().create_timer(charge_lockout_time).timeout
 	charging = false
+	ring_sprite.modulate = active_color
 
 func _physics_process(delta: float):
+	if !active:
+		return
 	var new_zoom = move_toward(camera_2d.zoom.x,target_zoom, zoom_smooth_speed*delta)
 	camera_2d.zoom = Vector2(new_zoom, new_zoom)
 	
@@ -107,38 +124,6 @@ func add_person(new_person: SwarmPerson):
 	num_people += 1
 	var new_area: float = area_per_person * num_people
 	set_radius(sqrt(new_area/PI))
-	
-	"""var radius_add: float = 26.0
-	var count_add: int = 8
-	var pos_radius: float = 0.0
-	var total_count: int = 0
-	var count: int = 0
-	var base_angle: float = 0.0
-	var swarm_offsets: Array[Vector2] = [Vector2.ZERO]
-	var layer_index: int = 0
-	for i in num_people-1:
-		if i >= total_count:
-			#base_angle = randf_range(0.0, 2*PI)
-			pos_radius += radius_add
-			count += count_add
-			total_count += count
-			layer_index = 0
-		var new_offset: Vector2 = Vector2.RIGHT*pos_radius
-		var offset_angle: float = 0.0
-		
-		var outer_slots: int = count
-		if num_people-1 < total_count:
-			var missing_slots: int = total_count - (num_people-1)
-			outer_slots = count - missing_slots
-		offset_angle = fposmod(base_angle + layer_index*2*PI/outer_slots,2*PI)
-		layer_index += 1
-		
-		swarm_offsets.append(new_offset.rotated(offset_angle))
-	
-	var index = 0
-	for person in swarming_people:
-		person.swarm_offset = swarm_offsets[index]
-		index += 1"""
 
 func _on_pickup_area_body_entered(body):
 	if body is SwarmPerson and !body.swarming:

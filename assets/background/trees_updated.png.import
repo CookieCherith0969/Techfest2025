@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqam1m0wcxbiv"
-path="res://.godot/imported/wells.png-5eb6bf64edbb0808e46f675f3a06b847.ctex"
+uid="uid://s36vn0gatnxk"
+path="res://.godot/imported/trees_updated.png-fff3acb775ed4c5767e55bc2aa775cd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/buildings/wells.png"
-dest_files=["res://.godot/imported/wells.png-5eb6bf64edbb0808e46f675f3a06b847.ctex"]
+source_file="res://assets/background/trees_updated.png"
+dest_files=["res://.godot/imported/trees_updated.png-fff3acb775ed4c5767e55bc2aa775cd7.ctex"]
 
 [params]
 
