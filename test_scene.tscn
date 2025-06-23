@@ -30,6 +30,7 @@ texture = ExtResource("4_vr1i5")
 
 [node name="DestructibleObject" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(342, 112)
+destroy_tax = 3
 
 [node name="Icon" type="Sprite2D" parent="DestructibleObject"]
 scale = Vector2(0.5, 0.5)

@@ -48,6 +48,8 @@ func charge():
 		charge_dir = get_local_mouse_position().normalized()
 	else:
 		charge_dir = Input.get_vector("Left","Right","Up","Down")
+	if !charge_dir:
+		velocity.normalized()
 	velocity = charge_dir*charge_speed
 	for person in swarming_people:
 		person.velocity += charge_dir*charge_speed
@@ -65,6 +67,12 @@ func _physics_process(delta: float):
 		if object is DestructibleObject:
 			if object.min_destroy_count <= num_people:
 				object.destroy()
+				for i in object.destroy_tax:
+					var person_index: int = randi_range(0, swarming_people.size()-1)
+					var removed_person: SwarmPerson = swarming_people[person_index]
+					swarming_people.remove_at(person_index)
+					removed_person.fling_remove()
+					num_people -= 1
 		return
 	
 	var input_dir: Vector2

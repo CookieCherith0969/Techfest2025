@@ -4,6 +4,9 @@ extends CharacterBody2D
 @onready var wander_timer = $WanderTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var person_sprite = $ScalePivot/PersonSprite
+@onready var collision_shape_2d = $CollisionShape2D
+@onready var shadow_sprite = $ShadowSprite
+@onready var fling_particle = $FlingParticle
 
 var swarming: bool = false:
 	set(value):
@@ -49,10 +52,12 @@ var separation_distance: float = 30.0
 
 const nearby_swarm_check_num: int = 3
 var acceleration: float = 60.0
-#var damping: float = 0.5
+var damping: float = 0.5
 
 var walk_speed_threshold: float = 10.0
 var flip_threshold: float = 12.0
+
+var disabled = false
 
 func _ready():
 	if texture:
@@ -60,6 +65,8 @@ func _ready():
 	wander_timer.start(randf_range(min_wander_time,max_wander_time))
 
 func _physics_process(delta):
+	if disabled:
+		return
 	if swarming:
 		target_pos = PlayerSwarm.instance.global_position
 	
@@ -81,6 +88,8 @@ func _physics_process(delta):
 		else:
 			velocity = Vector2.ZERO
 	
+	velocity *= 1 - (damping*delta)
+	
 	if animation_player.current_animation == "idle" and velocity.length() > walk_speed_threshold:
 		animation_player.play("RESET")
 		animation_player.seek(1,true)
@@ -96,6 +105,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_wander_timer_timeout():
+	if disabled:
+		return
 	#if swarming:
 	#	wander_offset = Vector2.ZERO
 	#	return
@@ -129,3 +140,16 @@ func get_nearest_positions() -> Array[Vector2]:
 				nearest_distances.pop_back()
 				break
 	return nearest_positions
+
+func fling_remove():
+	disabled = true
+	collision_shape_2d.set_deferred("disabled", true)
+	person_sprite.hide()
+	shadow_sprite.hide()
+	#animation_player.play("RESET")
+	fling_particle.texture = texture
+	fling_particle.emitting = true
+
+
+func _on_fling_particle_finished():
+	queue_free()

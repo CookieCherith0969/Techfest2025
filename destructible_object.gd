@@ -5,6 +5,8 @@ signal destroyed
 
 @export
 var min_destroy_count: int = 5
+@export
+var destroy_tax: int = 0
 
 func destroy():
 	for child in get_children():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7aw6tx3k23m0"]
+[gd_scene load_steps=10 format=3 uid="uid://b7aw6tx3k23m0"]
 
 [ext_resource type="Script" uid="uid://bk6i8pcnx7vra" path="res://swarm_person.gd" id="1_b40wu"]
 [ext_resource type="Texture2D" uid="uid://bvqg3qs786b0o" path="res://shadow.png" id="3_4uy17"]
@@ -97,6 +97,11 @@ _data = {
 &"walk": SubResource("Animation_i025g")
 }
 
+[sub_resource type="Curve" id="Curve_4uy17"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 7.81124, 0, 0, Vector2(0.153409, 1.5), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.33708, 0.0, 0, 0]
+point_count = 3
+
 [node name="SwarmPerson" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -127,4 +132,20 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="FlingParticle" type="CPUParticles2D" parent="."]
+position = Vector2(0, -16)
+emitting = false
+amount = 1
+texture = ExtResource("3_us84q")
+lifetime = 1.5
+one_shot = true
+direction = Vector2(0, -1)
+gravity = Vector2(0, 200)
+initial_velocity_min = 169.77
+initial_velocity_max = 179.87
+angular_velocity_min = -600.0
+angular_velocity_max = 600.0
+scale_amount_curve = SubResource("Curve_4uy17")
+
 [connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="finished" from="FlingParticle" to="." method="_on_fling_particle_finished"]
