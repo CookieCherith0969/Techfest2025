@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmsg5mqlynnni"]
+[gd_scene load_steps=4 format=3 uid="uid://cmsg5mqlynnni"]
 
 [ext_resource type="Script" uid="uid://cxy2i7hykhkg7" path="res://game_manager.gd" id="1_70yv6"]
+[ext_resource type="FontFile" uid="uid://bq3ep7ea2pxhp" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="2_o2178"]
 [ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="2_smx3j"]
 
 [node name="GameManager" type="CanvasLayer"]
@@ -8,35 +9,42 @@ layer = 2
 script = ExtResource("1_70yv6")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_right = 373.0
-offset_bottom = 47.0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 382.0
+offset_bottom = 56.0
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("2_o2178")
+theme_override_font_sizes/font_size = 40
 text = "SCORE: 0"
 
 [node name="TimeLabel" type="Label" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -47.0
-offset_right = 373.0
+offset_left = 9.0
+offset_top = -55.0
+offset_right = 382.0
+offset_bottom = -2.0
 grow_vertical = 0
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("2_o2178")
+theme_override_font_sizes/font_size = 40
 text = "TIME: 180"
 
 [node name="PeopleLabel" type="Label" parent="."]
-offset_left = 66.0
-offset_top = 67.0
-offset_right = 439.0
-offset_bottom = 114.0
+offset_left = 68.0
+offset_top = 70.0
+offset_right = 441.0
+offset_bottom = 120.0
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("2_o2178")
+theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -3.0
-offset_top = 41.0
+offset_top = 52.0
 offset_right = 77.0
-offset_bottom = 121.0
+offset_bottom = 132.0
 texture = ExtResource("2_smx3j")

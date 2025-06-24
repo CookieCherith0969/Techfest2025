@@ -93,14 +93,16 @@ func _physics_process(delta: float):
 	
 	if charging:
 		velocity = velocity.move_toward(Vector2.ZERO, deceleration*delta)
-		var collision = move_and_collide(velocity*delta)
-		if !collision:
-			return
-			
-		var object = collision.get_collider()
-		if object is DestructibleObject:
-			if object.min_destroy_count <= num_people:
+		var remaining_velocity: Vector2 = velocity*delta
+		var collision = move_and_collide(remaining_velocity)
+		var max_iterations: int = 10
+		var num_iterations: int = 0
+		while collision and num_iterations < max_iterations:
+			var object = collision.get_collider()
+			if object is DestructibleObject and object.min_destroy_count <= num_people:
+				remaining_velocity = collision.get_remainder()
 				object.destroy()
+				add_collision_exception_with(object)
 				for i in object.destroy_tax:
 					var person_index: int = randi_range(0, swarming_people.size()-1)
 					var removed_person: SwarmPerson = swarming_people[person_index]
@@ -110,6 +112,16 @@ func _physics_process(delta: float):
 				if object.destroy_tax > 0:
 					loss_sound.play()
 				update_radius()
+			else:
+				var remaining_fraction: float = 1.0 - remaining_velocity.normalized().rotated(PI).dot(collision.get_normal())
+				if is_zero_approx(remaining_fraction):
+					velocity = Vector2.ZERO
+					return
+				remaining_velocity = collision.get_remainder().slide(collision.get_normal()) * remaining_fraction
+				velocity = remaining_velocity.normalized()*velocity.length()*remaining_fraction
+			
+			collision = move_and_collide(remaining_velocity)
+			num_iterations += 1
 		return
 	
 	var input_dir: Vector2
@@ -121,7 +133,25 @@ func _physics_process(delta: float):
 		velocity = velocity.move_toward(input_dir*max_speed, acceleration*delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, deceleration*delta)
-	move_and_slide()
+	#move_and_slide()
+	#if get_slide_collision_count() > 0:
+	#	var collision = get_slide_collision(0)
+	#	var remaining_fraction: float = 1.0 - velocity.normalized().rotated(PI).dot(collision.get_normal())
+	#	velocity *= remaining_fraction
+	
+	var remaining_velocity: Vector2 = velocity*delta
+	var collision = move_and_collide(remaining_velocity)
+	var max_iterations: int = 10
+	var num_iterations: int = 0
+	while collision and num_iterations < max_iterations:
+		var remaining_fraction: float = 1.0 - remaining_velocity.normalized().rotated(PI).dot(collision.get_normal())
+		if is_zero_approx(remaining_fraction):
+			velocity = Vector2.ZERO
+			return
+		remaining_velocity = collision.get_remainder().slide(collision.get_normal()) * remaining_fraction
+		velocity = remaining_velocity.normalized()*velocity.length()*remaining_fraction
+		collision = move_and_collide(remaining_velocity)
+		num_iterations += 1
 
 func get_radius() -> float:
 	return collision_shape_2d.shape.radius

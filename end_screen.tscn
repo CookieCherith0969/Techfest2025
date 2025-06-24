@@ -141,6 +141,7 @@ sources/2 = SubResource("TileSetAtlasSource_jxxk4")
 sources/3 = SubResource("TileSetAtlasSource_baeeo")
 
 [node name="EndScreen" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_gwht3")
 
 [node name="FloorTileMap" type="TileMapLayer" parent="."]
