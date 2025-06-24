@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bmog1beqi2xh6"]
+[gd_scene load_steps=21 format=4 uid="uid://bmog1beqi2xh6"]
 
 [ext_resource type="Script" uid="uid://csj1chgh40wnr" path="res://end_screen.gd" id="1_21mob"]
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="2_ulwc8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cau5d0gvenbfo" path="res://crowd_spawner.tscn" id="7_qy6w0"]
 [ext_resource type="Script" uid="uid://d1nraf15bde54" path="res://score_label.gd" id="11_bftqp"]
 [ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="11_s0pvi"]
+[ext_resource type="FontFile" uid="uid://b1iquumpyvcy4" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="11_su3yw"]
 [ext_resource type="Texture2D" uid="uid://frtfspwmb3uj" path="res://assets/characters/peasant2.png" id="12_y8kjf"]
 [ext_resource type="Texture2D" uid="uid://cvxses2lxvk5s" path="res://assets/characters/peasant3.png" id="13_5hqje"]
 
@@ -189,8 +190,10 @@ offset_top = 11.0
 offset_right = 187.0
 offset_bottom = 58.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.27451, 0.27451, 1)
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("11_su3yw")
+theme_override_font_sizes/font_size = 40
 text = "THE UPRISING HAS FAILED"
 horizontal_alignment = 1
 
@@ -204,7 +207,8 @@ offset_right = 187.0
 offset_bottom = 103.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("11_su3yw")
+theme_override_font_sizes/font_size = 40
 text = "The people got bored"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -219,8 +223,10 @@ offset_right = 151.0
 offset_bottom = 208.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("11_su3yw")
+theme_override_font_sizes/font_size = 38
 text = "Score:"
+horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_bftqp")
 
@@ -236,7 +242,8 @@ offset_right = 119.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("11_su3yw")
+theme_override_font_sizes/font_size = 32
 text = "Start The Rebellion AGAIN"
 
 [node name="FadeRect" type="ColorRect" parent="Fade"]

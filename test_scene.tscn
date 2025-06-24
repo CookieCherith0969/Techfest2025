@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=62 format=4 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="1_6h1ut"]
 [ext_resource type="Texture2D" uid="uid://cspvlk5m5vvjn" path="res://assets/background/grass_sheet.png" id="1_rpuu0"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://61bds5ioo7tw" path="res://assets/characters/noble1.png" id="10_5qgi0"]
 [ext_resource type="Texture2D" uid="uid://c5jucyvuir20a" path="res://assets/characters/king.png" id="10_cqn77"]
 [ext_resource type="Texture2D" uid="uid://b78b6475f4mnw" path="res://assets/characters/noble2.png" id="11_7kp7o"]
+[ext_resource type="FontFile" uid="uid://b1iquumpyvcy4" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="13_r5xgu"]
 [ext_resource type="Texture2D" uid="uid://cu1fbgdav1cl8" path="res://wood_shards.png" id="15_hiucn"]
 [ext_resource type="Texture2D" uid="uid://detxc4oa7oxt8" path="res://assets/buildings/house1_updated.png" id="18_p7tmn"]
 [ext_resource type="Texture2D" uid="uid://ci5qvh1onyu8d" path="res://assets/buildings/cabin_updated.png" id="20_b11sm"]
@@ -266,18 +267,18 @@ texture = ExtResource("4_0k8yu")
 
 [node name="LmbPrompt" type="TextureRect" parent="Instructions/ModulateControl"]
 layout_mode = 0
-offset_left = 317.0
-offset_top = 625.0
-offset_right = 381.0
-offset_bottom = 689.0
+offset_left = 316.0
+offset_top = 632.0
+offset_right = 380.0
+offset_bottom = 696.0
 texture = ExtResource("5_0k8yu")
 
 [node name="RmbPrompt" type="TextureRect" parent="Instructions/ModulateControl"]
 layout_mode = 0
-offset_left = 620.0
-offset_top = 307.0
-offset_right = 684.0
-offset_bottom = 371.0
+offset_left = 621.0
+offset_top = 310.0
+offset_right = 685.0
+offset_bottom = 374.0
 texture = ExtResource("5_0k8yu")
 flip_h = true
 
@@ -292,7 +293,8 @@ offset_right = 404.0
 offset_bottom = 634.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 36
 text = "Move"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -308,7 +310,8 @@ offset_right = 711.0
 offset_bottom = 308.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 36
 text = "Charge"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -362,13 +365,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 342.0
+offset_left = 367.0
 offset_top = 335.0
-offset_right = 579.0
+offset_right = 554.0
 offset_bottom = 378.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 32
 text = "Start The Rebellion"
 
 [node name="Label" type="Label" parent="StartMenu/ModulateControl"]
@@ -376,14 +380,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 381.0
-offset_top = 29.0
-offset_right = 540.0
-offset_bottom = 76.0
+offset_left = 352.0
+offset_right = 568.0
+offset_bottom = 94.0
 grow_horizontal = 2
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_colors/font_color = Color(1, 0.27451, 0.27451, 1)
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 72
 text = "UPRISING"
+horizontal_alignment = 1
 
 [node name="CrowdSpawner" parent="." instance=ExtResource("1_sasra")]
 position = Vector2(496, 269)
@@ -979,7 +984,8 @@ offset_right = 231.0
 offset_bottom = 37.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 40
 text = "30"
 
 [node name="DestructibleObject14" parent="." instance=ExtResource("4_2nij2")]
@@ -1028,13 +1034,14 @@ anim_offset_max = 1.0
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 196.0
+offset_left = 200.0
 offset_top = -40.0
-offset_right = 355.0
-offset_bottom = 7.0
+offset_right = 359.0
+offset_bottom = 13.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 40
 text = "40"
 
 [node name="DestructibleObject16" parent="." instance=ExtResource("4_2nij2")]
@@ -1101,7 +1108,8 @@ offset_right = 514.0
 offset_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 40
 text = "20"
 
 [node name="DestructibleObject19" parent="." instance=ExtResource("4_2nij2")]
@@ -1488,7 +1496,8 @@ offset_right = 514.0
 offset_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 40
 text = "20"
 
 [node name="DestructibleObject18" parent="." instance=ExtResource("4_2nij2")]
@@ -1555,7 +1564,8 @@ offset_right = 514.0
 offset_bottom = 1.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
+theme_override_fonts/font = ExtResource("13_r5xgu")
+theme_override_font_sizes/font_size = 40
 text = "20"
 
 [node name="SwarmPerson2" parent="." instance=ExtResource("1_uhqqe")]
@@ -1619,40 +1629,40 @@ position = Vector2(496, -3934)
 texture = ExtResource("10_cqn77")
 
 [node name="Castlewall" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(656, -768)
+position = Vector2(656, -736)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_akknq")
+offset = Vector2(0, -16)
 
 [node name="Castlewall2" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(304, -768)
+position = Vector2(304, -736)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_chy0g")
+offset = Vector2(0, -16)
 
 [node name="Castlewall3" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(896, -768)
+position = Vector2(896, -736)
 scale = Vector2(2, 2)
 texture = ExtResource("31_sxsde")
+offset = Vector2(0, -16)
 
 [node name="Castlewall4" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(1152, -768)
+position = Vector2(1152, -736)
 scale = Vector2(2, 2)
 texture = ExtResource("31_sxsde")
+offset = Vector2(0, -16)
 
 [node name="Castlewall5" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(64, -768)
+position = Vector2(64, -736)
 scale = Vector2(2, 2)
 texture = ExtResource("31_sxsde")
+offset = Vector2(0, -16)
 
 [node name="Castlewall6" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-192, -768)
+position = Vector2(-192, -736)
 scale = Vector2(2, 2)
 texture = ExtResource("31_sxsde")
+offset = Vector2(0, -16)
 
 [connection signal="pressed" from="StartMenu/ModulateControl/Button" to="StartMenu" method="_on_button_pressed"]
 [connection signal="destroyed" from="DestructibleObject" to="DestructibleObject/CrowdSpawner2" method="spawn"]
