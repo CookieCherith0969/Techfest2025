@@ -17,3 +17,5 @@ func give_control():
 	instruction_tween.tween_property(instructions_modulate,"modulate",Color.WHITE,1.5)
 	hide()
 	PlayerSwarm.instance.active = true
+	GameManager.show()
+	GameManager.start_timing()

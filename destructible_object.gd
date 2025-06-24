@@ -7,6 +7,8 @@ signal destroyed
 var min_destroy_count: int = 5
 @export
 var destroy_tax: int = 0
+@export
+var point_value: int = 0
 
 func destroy():
 	for child in get_children():
@@ -14,4 +16,5 @@ func destroy():
 			child.reparent(get_parent())
 			child.emitting = true
 	destroyed.emit()
+	GameManager.add_score(point_value)
 	queue_free()

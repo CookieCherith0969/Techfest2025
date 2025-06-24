@@ -13,6 +13,7 @@ var swarming: bool = false:
 		swarming = value
 		if swarming:
 			add_to_group("SwarmingPeople")
+			GameManager.add_score(1)
 			#wander_timer.stop()
 		else:
 			remove_from_group("SwarmingPeople")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=51 format=4 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="1_6h1ut"]
 [ext_resource type="Texture2D" uid="uid://cspvlk5m5vvjn" path="res://assets/background/grass_sheet.png" id="1_rpuu0"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bcns1ukohqbfk" path="res://gate.png" id="25_22oil"]
 [ext_resource type="Texture2D" uid="uid://coy1ttph3njfn" path="res://assets/characters/knight.png" id="27_b11sm"]
 [ext_resource type="Texture2D" uid="uid://blxee44kotb8a" path="res://assets/buildings/blockade.png" id="27_mfkbt"]
+[ext_resource type="Texture2D" uid="uid://cm05nrc6pa3is" path="res://assets/buildings/table.png" id="30_7kp7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qgi0"]
 texture = ExtResource("1_6h1ut")
@@ -185,6 +186,9 @@ size = Vector2(384, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fq6b"]
 size = Vector2(544, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy8sc"]
+size = Vector2(42, 34)
+
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
 
@@ -200,20 +204,6 @@ tile_map_data = PackedByteArray("AAAAAPr/AgABAAMAAAD///r/AgAAAAEAAAD///v/AgABAAM
 tile_set = SubResource("TileSet_4gito")
 
 [node name="Fade" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="Fade"]
-visible = false
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -464.0
-offset_top = 332.0
-offset_right = -305.0
-offset_bottom = 379.0
-grow_horizontal = 2
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 34
-text = "Time until the masses get bored:"
 
 [node name="FadeRect" type="ColorRect" parent="Fade"]
 modulate = Color(1, 1, 1, 0)
@@ -386,6 +376,7 @@ texture = ExtResource("2_buypi")
 
 [node name="DestructibleObject" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(670, 143)
+point_value = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject"]
 position = Vector2(2, -1)
@@ -421,6 +412,7 @@ textures = Array[Texture2D]([ExtResource("2_buypi"), ExtResource("3_njel3"), Ext
 
 [node name="DestructibleObject2" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(319, 122)
+point_value = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject2"]
 position = Vector2(1, -4)
@@ -457,6 +449,7 @@ textures = Array[Texture2D]([ExtResource("2_buypi"), ExtResource("3_njel3"), Ext
 [node name="DestructibleObject3" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(512, -256)
 min_destroy_count = 3
+point_value = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject3"]
 scale = Vector2(2, 2)
@@ -475,6 +468,7 @@ textures = Array[Texture2D]([ExtResource("3_njel3")])
 
 [node name="DestructibleObject4" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(652, -275)
+point_value = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject4"]
 scale = Vector2(2, 2)
@@ -508,6 +502,7 @@ anim_offset_max = 1.0
 
 [node name="DestructibleObject5" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(376, -328)
+point_value = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject5"]
 scale = Vector2(2, 2)
@@ -541,6 +536,7 @@ anim_offset_max = 1.0
 
 [node name="DestructibleObject6" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(280, -224)
+point_value = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject6"]
 position = Vector2(2, -1)
@@ -576,6 +572,7 @@ textures = Array[Texture2D]([ExtResource("2_buypi"), ExtResource("3_njel3"), Ext
 
 [node name="DestructibleObject9" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(1245, -1526)
+point_value = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject9"]
 position = Vector2(2, -1)
@@ -611,6 +608,7 @@ textures = Array[Texture2D]([ExtResource("21_6m80x"), ExtResource("22_cqn77")])
 
 [node name="DestructibleObject13" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(988, -1555)
+point_value = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject13"]
 position = Vector2(2, -1)
@@ -646,6 +644,7 @@ textures = Array[Texture2D]([ExtResource("21_6m80x"), ExtResource("22_cqn77")])
 
 [node name="DestructibleObject15" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(1251, -2098)
+point_value = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject15"]
 position = Vector2(2, -1)
@@ -706,6 +705,7 @@ textures = Array[Texture2D]([ExtResource("27_b11sm")])
 
 [node name="DestructibleObject10" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(956, -1117)
+point_value = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject10"]
 position = Vector2(2, -1)
@@ -741,6 +741,7 @@ textures = Array[Texture2D]([ExtResource("21_6m80x"), ExtResource("22_cqn77")])
 
 [node name="DestructibleObject11" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(270, -1258)
+point_value = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject11"]
 position = Vector2(2, -1)
@@ -776,6 +777,7 @@ textures = Array[Texture2D]([ExtResource("21_6m80x"), ExtResource("22_cqn77")])
 
 [node name="DestructibleObject12" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(666, -1392)
+point_value = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject12"]
 position = Vector2(2, -1)
@@ -811,6 +813,7 @@ textures = Array[Texture2D]([ExtResource("21_6m80x"), ExtResource("22_cqn77")])
 
 [node name="DestructibleObject7" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(618, -382)
+point_value = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject7"]
 position = Vector2(2, -1)
@@ -864,6 +867,7 @@ textures = Array[Texture2D]([ExtResource("21_6m80x"), ExtResource("22_cqn77")])
 position = Vector2(480, -783)
 min_destroy_count = 30
 destroy_tax = 20
+point_value = 50
 
 [node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject8"]
 position = Vector2(-32, 31)
@@ -919,6 +923,7 @@ anim_offset_max = 1.0
 position = Vector2(1120, -1701)
 min_destroy_count = 40
 destroy_tax = 30
+point_value = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject14"]
 texture = ExtResource("27_mfkbt")
@@ -949,6 +954,7 @@ anim_offset_max = 1.0
 position = Vector2(417, -3451)
 min_destroy_count = 20
 destroy_tax = 21
+point_value = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject16"]
 position = Vector2(-1, 0)
@@ -981,10 +987,331 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 anim_offset_max = 1.0
 
+[node name="DestructibleObject19" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(14, -3255)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject19"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject19"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject19"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject20" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(183, -3162)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject20"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject20"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject20"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject21" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(156, -3336)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject21"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject21"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject21"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject22" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(84, -3069)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject22"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject22"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject22"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject23" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(747, -3247)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject23"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject23"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject23"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject24" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(806, -3020)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject24"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject24"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject24"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject25" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(900, -3177)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject25"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject25"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject25"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject26" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(1026, -3293)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject26"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject26"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject26"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject27" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(1063, -3122)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject27"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject27"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject27"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject28" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(-108, -3103)
+point_value = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject28"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject28"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject28"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
 [node name="DestructibleObject17" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(417, -3549)
 min_destroy_count = 20
 destroy_tax = 20
+point_value = 15
 
 [node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject17"]
 position = Vector2(159, 0)
@@ -1021,13 +1348,14 @@ anim_offset_max = 1.0
 position = Vector2(417, -3643)
 min_destroy_count = 20
 destroy_tax = 10
-
-[node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject18"]
-position = Vector2(159, 0)
-texture = ExtResource("27_mfkbt")
+point_value = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject18"]
 position = Vector2(-1, 0)
+texture = ExtResource("27_mfkbt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject18"]
+position = Vector2(159, 0)
 texture = ExtResource("27_mfkbt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject18"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmsg5mqlynnni"]
+
+[ext_resource type="Script" uid="uid://cxy2i7hykhkg7" path="res://game_manager.gd" id="1_70yv6"]
+
+[node name="GameManager" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_70yv6")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 373.0
+offset_bottom = 47.0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "SCORE: 0"
+
+[node name="TimeLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 373.0
+grow_vertical = 0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "TIME: 180"
