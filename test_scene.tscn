@@ -968,6 +968,20 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 anim_offset_max = 1.0
 
+[node name="Label" type="Label" parent="DestructibleObject8"]
+z_index = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 72.0
+offset_top = -10.0
+offset_right = 231.0
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "30"
+
 [node name="DestructibleObject14" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(1120, -1701)
 min_destroy_count = 40
@@ -1009,6 +1023,19 @@ angular_velocity_max = 200.0
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 anim_offset_max = 1.0
+
+[node name="Label" type="Label" parent="DestructibleObject14"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 196.0
+offset_top = -40.0
+offset_right = 355.0
+offset_bottom = 7.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "40"
 
 [node name="DestructibleObject16" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(417, -3451)
@@ -1063,6 +1090,19 @@ angular_velocity_max = 200.0
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 anim_offset_max = 1.0
+
+[node name="Label" type="Label" parent="DestructibleObject16"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 355.0
+offset_top = -46.0
+offset_right = 514.0
+offset_bottom = 1.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "20"
 
 [node name="DestructibleObject19" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(14, -3255)
@@ -1438,6 +1478,19 @@ scale_amount_min = 0.5
 scale_amount_max = 0.5
 anim_offset_max = 1.0
 
+[node name="Label" type="Label" parent="DestructibleObject17"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 355.0
+offset_top = -46.0
+offset_right = 514.0
+offset_bottom = 1.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "20"
+
 [node name="DestructibleObject18" parent="." instance=ExtResource("4_2nij2")]
 position = Vector2(417, -3643)
 min_destroy_count = 20
@@ -1491,6 +1544,19 @@ angular_velocity_max = 200.0
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 anim_offset_max = 1.0
+
+[node name="Label" type="Label" parent="DestructibleObject18"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 355.0
+offset_top = -46.0
+offset_right = 514.0
+offset_bottom = 1.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "20"
 
 [node name="SwarmPerson2" parent="." instance=ExtResource("1_uhqqe")]
 position = Vector2(946, -1768)

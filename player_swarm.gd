@@ -24,7 +24,10 @@ var acceleration: float = 140.0
 var max_speed: float = 150.0
 var charge_speed: float = 300.0
 
-var num_people: int = 0
+var num_people: int = 0:
+	set(value):
+		num_people = value
+		GameManager.update_num_people(num_people)
 var swarming_people: Array[SwarmPerson] = []
 var area_per_person: float = 800
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmsg5mqlynnni"]
+[gd_scene load_steps=3 format=3 uid="uid://cmsg5mqlynnni"]
 
 [ext_resource type="Script" uid="uid://cxy2i7hykhkg7" path="res://game_manager.gd" id="1_70yv6"]
+[ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="2_smx3j"]
 
 [node name="GameManager" type="CanvasLayer"]
 layer = 2
@@ -23,3 +24,19 @@ grow_vertical = 0
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 34
 text = "TIME: 180"
+
+[node name="PeopleLabel" type="Label" parent="."]
+offset_left = 66.0
+offset_top = 67.0
+offset_right = 439.0
+offset_bottom = 114.0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -3.0
+offset_top = 41.0
+offset_right = 77.0
+offset_bottom = 121.0
+texture = ExtResource("2_smx3j")

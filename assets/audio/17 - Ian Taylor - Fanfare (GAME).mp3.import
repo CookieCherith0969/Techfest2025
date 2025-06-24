@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hm7qsawgvy7l"
+path="res://.godot/imported/17 - Ian Taylor - Fanfare (GAME).mp3-eb1b8182cb3b74ecf150407f99ded115.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/17 - Ian Taylor - Fanfare (GAME).mp3"
+dest_files=["res://.godot/imported/17 - Ian Taylor - Fanfare (GAME).mp3-eb1b8182cb3b74ecf150407f99ded115.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
