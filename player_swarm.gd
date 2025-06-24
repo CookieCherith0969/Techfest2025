@@ -3,6 +3,9 @@ extends CharacterBody2D
 
 static var instance: PlayerSwarm
 
+@export
+var fade_rect: ColorRect
+
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var charge_cooldown_timer = $ChargeCooldownTimer
 @onready var ring_sprite = $RingSprite
@@ -98,6 +101,7 @@ func _physics_process(delta: float):
 					swarming_people.remove_at(person_index)
 					removed_person.fling_remove()
 					num_people -= 1
+				update_radius()
 		return
 	
 	var input_dir: Vector2
@@ -122,6 +126,9 @@ func set_radius(new_radius: float) -> void:
 func add_person(new_person: SwarmPerson):
 	swarming_people.append(new_person)
 	num_people += 1
+	update_radius()
+
+func update_radius():
 	var new_area: float = area_per_person * num_people
 	set_radius(sqrt(new_area/PI))
 
@@ -129,7 +136,15 @@ func _on_pickup_area_body_entered(body):
 	if body is SwarmPerson and !body.swarming:
 		body.swarming = true
 		add_person(body)
+		if body.name == "King":
+			fade_to_end()
 
+func fade_to_end():
+	active = false
+	var fade_tween: Tween = create_tween()
+	fade_tween.tween_property(fade_rect,"modulate",Color.WHITE,1.5)
+	await fade_tween.finished
+	get_tree().change_scene_to_file.call_deferred("res://end_screen.tscn")
 
 func _on_charge_cooldown_timer_timeout():
 	ring_sprite.modulate = active_color

@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bvqg3qs786b0o" path="res://shadow.png" id="3_4uy17"]
 [ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="3_us84q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b40wu"]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4uy17"]
+radius = 5.0
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_dediq"]
 length = 0.001
@@ -118,7 +119,9 @@ wait_time = 1.5
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_b40wu")
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4uy17")
 
 [node name="ScalePivot" type="Node2D" parent="."]
 
