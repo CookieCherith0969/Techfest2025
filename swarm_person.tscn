@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7aw6tx3k23m0"]
+[gd_scene load_steps=11 format=3 uid="uid://b7aw6tx3k23m0"]
 
 [ext_resource type="Script" uid="uid://bk6i8pcnx7vra" path="res://swarm_person.gd" id="1_b40wu"]
 [ext_resource type="Texture2D" uid="uid://bvqg3qs786b0o" path="res://shadow.png" id="3_4uy17"]
 [ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="3_us84q"]
+[ext_resource type="AudioStream" uid="uid://bub0ci1xl1bv6" path="res://assets/audio/bump.wav" id="4_us84q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4uy17"]
 radius = 5.0
@@ -149,6 +150,11 @@ initial_velocity_max = 200.0
 angular_velocity_min = -600.0
 angular_velocity_max = 600.0
 scale_amount_curve = SubResource("Curve_4uy17")
+
+[node name="BumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_us84q")
+
+[node name="BumpCooldownTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
 [connection signal="finished" from="FlingParticle" to="." method="_on_fling_particle_finished"]
