@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://61bds5ioo7tw" path="res://assets/characters/noble1.png" id="10_5qgi0"]
 [ext_resource type="Texture2D" uid="uid://c5jucyvuir20a" path="res://assets/characters/king.png" id="10_cqn77"]
 [ext_resource type="Texture2D" uid="uid://b78b6475f4mnw" path="res://assets/characters/noble2.png" id="11_7kp7o"]
-[ext_resource type="FontFile" uid="uid://b1iquumpyvcy4" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="13_r5xgu"]
+[ext_resource type="FontFile" uid="uid://bq3ep7ea2pxhp" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="13_r5xgu"]
 [ext_resource type="Texture2D" uid="uid://cu1fbgdav1cl8" path="res://wood_shards.png" id="15_hiucn"]
 [ext_resource type="Texture2D" uid="uid://detxc4oa7oxt8" path="res://assets/buildings/house1_updated.png" id="18_p7tmn"]
 [ext_resource type="Texture2D" uid="uid://ci5qvh1onyu8d" path="res://assets/buildings/cabin_updated.png" id="20_b11sm"]
@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://0i8ki4mqtr7i" path="res://assets/misc/castlewall.png" id="31_sxsde"]
 [ext_resource type="Texture2D" uid="uid://cwqoi4jvgh0dv" path="res://assets/misc/gate.png" id="32_r5xgu"]
 [ext_resource type="Texture2D" uid="uid://ci2eh3lqbu5ds" path="res://assets/misc/barricade.png" id="33_sxsde"]
-[ext_resource type="Texture2D" uid="uid://bc111yv7mtci3" path="res://assets/buildings/townsquare.png" id="35_rygqd"]
+[ext_resource type="Texture2D" uid="uid://cxkvesh65o0n1" path="res://assets/buildings/townsquare.png" id="35_rygqd"]
 [ext_resource type="Texture2D" uid="uid://dljoeu7o4pncs" path="res://droplet.png" id="36_8k62k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qgi0"]
