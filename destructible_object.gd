@@ -1,6 +1,8 @@
 class_name DestructibleObject
 extends StaticBody2D
 
+@onready var destroy_sound = $DestroySound
+
 signal destroyed
 
 @export
@@ -16,5 +18,7 @@ func destroy():
 			child.reparent(get_parent())
 			child.emitting = true
 	destroyed.emit()
+	destroy_sound.reparent(get_parent())
+	destroy_sound.play()
 	GameManager.add_score(point_value)
 	queue_free()

@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var time_label = $TimeLabel
 @onready var people_label = $PeopleLabel
 
-var game_length: float = 180.0
+var game_length: float = 120.0
 var time_remaining: float = game_length
 var score: int = -1
 

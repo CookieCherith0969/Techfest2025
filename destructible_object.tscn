@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bordohq2ntr4e"]
+[gd_scene load_steps=3 format=3 uid="uid://bordohq2ntr4e"]
 
 [ext_resource type="Script" uid="uid://bxbp5lmbl5rjn" path="res://destructible_object.gd" id="1_3jcet"]
+[ext_resource type="AudioStream" uid="uid://bt80rshg4m60o" path="res://assets/audio/437602__debsound__brick-debris-fall-06.wav" id="2_25m11"]
 
 [node name="DestructibleObject" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_3jcet")
+
+[node name="DestroySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_25m11")
+volume_db = -12.0

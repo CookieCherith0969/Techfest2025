@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cau5d0gvenbfo" path="res://crowd_spawner.tscn" id="7_qy6w0"]
 [ext_resource type="Script" uid="uid://d1nraf15bde54" path="res://score_label.gd" id="11_bftqp"]
 [ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="11_s0pvi"]
-[ext_resource type="FontFile" uid="uid://b1iquumpyvcy4" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="11_su3yw"]
+[ext_resource type="FontFile" uid="uid://bq3ep7ea2pxhp" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="11_su3yw"]
 [ext_resource type="Texture2D" uid="uid://frtfspwmb3uj" path="res://assets/characters/peasant2.png" id="12_y8kjf"]
 [ext_resource type="Texture2D" uid="uid://cvxses2lxvk5s" path="res://assets/characters/peasant3.png" id="13_5hqje"]
 

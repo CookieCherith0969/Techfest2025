@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b7aw6tx3k23m0" path="res://swarm_person.tscn" id="15_7o1nc"]
 [ext_resource type="Texture2D" uid="uid://c5jucyvuir20a" path="res://assets/characters/king.png" id="16_3gmqv"]
 [ext_resource type="Script" uid="uid://d1nraf15bde54" path="res://score_label.gd" id="18_hmxq4"]
-[ext_resource type="FontFile" uid="uid://b1iquumpyvcy4" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="18_rkolx"]
+[ext_resource type="FontFile" uid="uid://bq3ep7ea2pxhp" path="res://assets/itch/Pirata_One/PirataOne-Regular.ttf" id="18_rkolx"]
 [ext_resource type="Script" uid="uid://c7q6bxnxlg76e" path="res://time_label.gd" id="19_eor0d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f33ud"]
