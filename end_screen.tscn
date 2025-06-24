@@ -247,15 +247,6 @@ text = "Dance Party!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FadeRect" type="ColorRect" parent="Fade"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="TimeLabel" type="Label" parent="Fade"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -287,3 +278,29 @@ text = "Score:"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("18_hmxq4")
+
+[node name="Button" type="Button" parent="Fade"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -102.0
+offset_right = 119.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Start The Rebellion AGAIN"
+
+[node name="FadeRect" type="ColorRect" parent="Fade"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Fade/Button" to="." method="_on_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=4 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=52 format=4 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="1_6h1ut"]
 [ext_resource type="Texture2D" uid="uid://cspvlk5m5vvjn" path="res://assets/background/grass_sheet.png" id="1_rpuu0"]
@@ -179,6 +179,9 @@ region = Rect2(64, 0, 64, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_b11sm"]
 atlas = ExtResource("5_6m80x")
 region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kp7o"]
+size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22oil"]
 size = Vector2(384, 64)
@@ -898,7 +901,7 @@ texture = ExtResource("25_22oil")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject8"]
 position = Vector2(0, 15)
-shape = SubResource("RectangleShape2D_22oil")
+shape = SubResource("RectangleShape2D_7kp7o")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject8"]
 material = SubResource("CanvasItemMaterial_k6its")
