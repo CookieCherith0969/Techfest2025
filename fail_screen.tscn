@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bmog1beqi2xh6"]
+[gd_scene load_steps=20 format=4 uid="uid://bmog1beqi2xh6"]
 
 [ext_resource type="Script" uid="uid://csj1chgh40wnr" path="res://end_screen.gd" id="1_21mob"]
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="2_ulwc8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://brqn7xmusvcdf" path="res://assets/background/path_sheet.png" id="5_2cebr"]
 [ext_resource type="Texture2D" uid="uid://s36vn0gatnxk" path="res://assets/background/trees_updated.png" id="6_alej5"]
 [ext_resource type="PackedScene" uid="uid://cau5d0gvenbfo" path="res://crowd_spawner.tscn" id="7_qy6w0"]
+[ext_resource type="Script" uid="uid://d1nraf15bde54" path="res://score_label.gd" id="11_bftqp"]
 [ext_resource type="Texture2D" uid="uid://dx8fp22c3lsi8" path="res://assets/characters/peasant1.png" id="11_s0pvi"]
 [ext_resource type="Texture2D" uid="uid://frtfspwmb3uj" path="res://assets/characters/peasant2.png" id="12_y8kjf"]
 [ext_resource type="Texture2D" uid="uid://cvxses2lxvk5s" path="res://assets/characters/peasant3.png" id="13_5hqje"]
@@ -190,7 +191,7 @@ offset_bottom = 58.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 34
-text = "UPRISING FAILED"
+text = "THE UPRISING HAS FAILED"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Fade"]
@@ -208,10 +209,43 @@ text = "The people got bored"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScoreLabel" type="Label" parent="Fade"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 161.0
+offset_right = 151.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "Score:"
+vertical_alignment = 1
+script = ExtResource("11_bftqp")
+
 [node name="FadeRect" type="ColorRect" parent="Fade"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="Fade"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -102.0
+offset_right = 119.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Start The Rebellion AGAIN"
+
+[connection signal="pressed" from="Fade/Button" to="." method="_on_button_pressed"]

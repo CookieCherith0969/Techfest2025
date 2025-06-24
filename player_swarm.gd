@@ -140,6 +140,8 @@ func _on_pickup_area_body_entered(body):
 			fade_to_end()
 
 func fade_to_end():
+	GameManager.hide()
+	GameManager.stop_timing()
 	active = false
 	var fade_tween: Tween = create_tween()
 	fade_tween.tween_property(fade_rect,"modulate",Color.WHITE,1.5)
@@ -147,6 +149,8 @@ func fade_to_end():
 	get_tree().change_scene_to_file.call_deferred("res://end_screen.tscn")
 
 func fade_to_fail():
+	GameManager.hide()
+	GameManager.stop_timing()
 	active = false
 	var fade_tween: Tween = create_tween()
 	fade_tween.tween_property(fade_rect,"modulate",Color.WHITE,1.5)

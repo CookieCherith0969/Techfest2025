@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cyr4cr1va0xtx"]
+[gd_scene load_steps=28 format=4 uid="uid://cyr4cr1va0xtx"]
 
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="1_d75mr"]
 [ext_resource type="Script" uid="uid://csj1chgh40wnr" path="res://end_screen.gd" id="1_gwht3"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://dhhsgt5jry17j" path="res://assets/characters/townsfolk2.png" id="14_1178s"]
 [ext_resource type="PackedScene" uid="uid://b7aw6tx3k23m0" path="res://swarm_person.tscn" id="15_7o1nc"]
 [ext_resource type="Texture2D" uid="uid://c5jucyvuir20a" path="res://assets/characters/king.png" id="16_3gmqv"]
+[ext_resource type="Script" uid="uid://d1nraf15bde54" path="res://score_label.gd" id="18_hmxq4"]
+[ext_resource type="Script" uid="uid://c7q6bxnxlg76e" path="res://time_label.gd" id="19_eor0d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f33ud"]
 texture = ExtResource("1_d75mr")
@@ -226,7 +228,9 @@ offset_bottom = 58.0
 grow_horizontal = 2
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 34
-text = "UPRISING SUCCESSFUL"
+text = "THE UPRISING HAS SUCCEEDED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Fade"]
 anchors_preset = 5
@@ -244,9 +248,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FadeRect" type="ColorRect" parent="Fade"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TimeLabel" type="Label" parent="Fade"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 253.0
+offset_right = 151.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "Time: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("19_eor0d")
+
+[node name="ScoreLabel" type="Label" parent="Fade"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 113.0
+offset_right = 151.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("18_hmxq4")
