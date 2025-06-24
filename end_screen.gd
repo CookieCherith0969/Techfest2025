@@ -13,5 +13,6 @@ func _ready() -> void:
 
 
 func _on_button_pressed():
+	Engine.time_scale = 1.0
 	GameManager.reset()
 	get_tree().change_scene_to_file("res://test_scene.tscn")

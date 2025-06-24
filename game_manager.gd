@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var score_label = $ScoreLabel
 @onready var time_label = $TimeLabel
+@onready var people_label = $PeopleLabel
 
 var game_length: float = 180.0
 var time_remaining: float = game_length
@@ -40,3 +41,6 @@ func _process(delta):
 		stop_timing()
 		PlayerSwarm.instance.fade_to_fail()
 	time_label.text = "TIME: "+str(ceili(time_remaining))
+
+func update_num_people(new_people: int):
+	people_label.text = str(new_people)
