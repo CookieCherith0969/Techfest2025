@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var shadow_sprite = $ShadowSprite
 @onready var fling_particle = $FlingParticle
+@onready var bump_sound = $BumpSound
+@onready var bump_cooldown_timer = $BumpCooldownTimer
 
 var swarming: bool = false:
 	set(value):
@@ -105,7 +107,13 @@ func _physics_process(delta):
 		person_sprite.flip_h = true
 	elif velocity.x < -flip_threshold:
 		person_sprite.flip_h = false
+	var pre_speed := velocity.length()
 	move_and_slide()
+	if bump_cooldown_timer.is_stopped():
+		if pre_speed > 160.0:
+			if get_slide_collision_count() > 0:
+				bump_cooldown_timer.start()
+				bump_sound.play()
 
 func _on_wander_timer_timeout():
 	if disabled:
