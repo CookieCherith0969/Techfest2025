@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=61 format=4 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="1_6h1ut"]
 [ext_resource type="Texture2D" uid="uid://cspvlk5m5vvjn" path="res://assets/background/grass_sheet.png" id="1_rpuu0"]
@@ -30,11 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://buq1m0n3av3mh" path="res://assets/buildings/house2.png" id="25_2nf64"]
 [ext_resource type="Texture2D" uid="uid://dhn4douy7gj8b" path="res://assets/buildings/house1.png" id="25_8fq6b"]
 [ext_resource type="Texture2D" uid="uid://coy1ttph3njfn" path="res://assets/characters/knight.png" id="27_b11sm"]
-[ext_resource type="Texture2D" uid="uid://blxee44kotb8a" path="res://assets/buildings/blockade.png" id="27_mfkbt"]
 [ext_resource type="Texture2D" uid="uid://cm05nrc6pa3is" path="res://assets/buildings/table.png" id="30_7kp7o"]
 [ext_resource type="Texture2D" uid="uid://fmjchx84wlae" path="res://assets/buildings/house3.png" id="30_sxsde"]
 [ext_resource type="Texture2D" uid="uid://0i8ki4mqtr7i" path="res://assets/misc/castlewall.png" id="31_sxsde"]
 [ext_resource type="Texture2D" uid="uid://cwqoi4jvgh0dv" path="res://assets/misc/gate.png" id="32_r5xgu"]
+[ext_resource type="Texture2D" uid="uid://ci2eh3lqbu5ds" path="res://assets/misc/barricade.png" id="33_sxsde"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qgi0"]
 texture = ExtResource("1_6h1ut")
@@ -195,6 +195,10 @@ size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22oil"]
 size = Vector2(384, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5xgu"]
+atlas = ExtResource("33_sxsde")
+region = Rect2(0, 0, 16, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fq6b"]
 size = Vector2(544, 64)
@@ -971,7 +975,18 @@ destroy_tax = 30
 point_value = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject14"]
-texture = ExtResource("27_mfkbt")
+position = Vector2(-128, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject14"]
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DestructibleObject14"]
+position = Vector2(128, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject14"]
 shape = SubResource("RectangleShape2D_22oil")
@@ -1002,12 +1017,29 @@ destroy_tax = 21
 point_value = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject16"]
-position = Vector2(-1, 0)
-texture = ExtResource("27_mfkbt")
+position = Vector2(-129, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
 
 [node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject16"]
-position = Vector2(159, 0)
-texture = ExtResource("27_mfkbt")
+position = Vector2(-1, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DestructibleObject16"]
+position = Vector2(127, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D4" type="Sprite2D" parent="DestructibleObject16"]
+position = Vector2(255, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D5" type="Sprite2D" parent="DestructibleObject16"]
+position = Vector2(335, -1)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_r5xgu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject16"]
 position = Vector2(79, 0)
@@ -1358,13 +1390,30 @@ min_destroy_count = 20
 destroy_tax = 20
 point_value = 15
 
-[node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject17"]
-position = Vector2(159, 0)
-texture = ExtResource("27_mfkbt")
-
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject17"]
-position = Vector2(-1, 0)
-texture = ExtResource("27_mfkbt")
+position = Vector2(-129, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject17"]
+position = Vector2(-1, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DestructibleObject17"]
+position = Vector2(127, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D4" type="Sprite2D" parent="DestructibleObject17"]
+position = Vector2(255, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D5" type="Sprite2D" parent="DestructibleObject17"]
+position = Vector2(335, -1)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_r5xgu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject17"]
 position = Vector2(79, 0)
@@ -1396,12 +1445,29 @@ destroy_tax = 10
 point_value = 15
 
 [node name="Sprite2D" type="Sprite2D" parent="DestructibleObject18"]
-position = Vector2(-1, 0)
-texture = ExtResource("27_mfkbt")
+position = Vector2(-129, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
 
 [node name="Sprite2D2" type="Sprite2D" parent="DestructibleObject18"]
-position = Vector2(159, 0)
-texture = ExtResource("27_mfkbt")
+position = Vector2(-1, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DestructibleObject18"]
+position = Vector2(127, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D4" type="Sprite2D" parent="DestructibleObject18"]
+position = Vector2(255, -1)
+scale = Vector2(2, 2)
+texture = ExtResource("33_sxsde")
+
+[node name="Sprite2D5" type="Sprite2D" parent="DestructibleObject18"]
+position = Vector2(335, -1)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_r5xgu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject18"]
 position = Vector2(79, 0)
