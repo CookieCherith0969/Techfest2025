@@ -11,6 +11,8 @@ var fade_rect: ColorRect
 @onready var ring_sprite = $RingSprite
 @onready var camera_2d = $Camera2D
 @onready var charge_ring = $RingSprite/ChargeRing
+@onready var charge_sound = $ChargeSound
+@onready var loss_sound = $LossSound
 
 var charge_cooldown_length: float = 1.5
 var charge_windup_time: float = 0.3
@@ -61,6 +63,7 @@ func _input(event):
 		charge()
 
 func charge():
+	charge_sound.play()
 	charging = true
 	charge_cooldown_timer.start(charge_cooldown_length)
 	charge_ring.value = 0.0
@@ -104,6 +107,8 @@ func _physics_process(delta: float):
 					swarming_people.remove_at(person_index)
 					removed_person.fling_remove()
 					num_people -= 1
+				if object.destroy_tax > 0:
+					loss_sound.play()
 				update_radius()
 		return
 	
@@ -143,6 +148,7 @@ func _on_pickup_area_body_entered(body):
 			fade_to_end()
 
 func fade_to_end():
+	SoundManager.fade_to_title_music()
 	GameManager.hide()
 	GameManager.stop_timing()
 	active = false
@@ -152,6 +158,7 @@ func fade_to_end():
 	get_tree().change_scene_to_file.call_deferred("res://end_screen.tscn")
 
 func fade_to_fail():
+	SoundManager.fade_to_title_music()
 	GameManager.hide()
 	GameManager.stop_timing()
 	active = false

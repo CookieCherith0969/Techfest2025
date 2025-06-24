@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsj2ncd8e5yqi"]
+[gd_scene load_steps=6 format=3 uid="uid://bsj2ncd8e5yqi"]
 
 [ext_resource type="Script" uid="uid://b73rha7nj8ngk" path="res://player_swarm.gd" id="1_j8wkr"]
 [ext_resource type="Texture2D" uid="uid://cu6luuw8jyw5r" path="res://ring.png" id="2_dediq"]
+[ext_resource type="AudioStream" uid="uid://c4fq0khb48yud" path="res://assets/audio/victorycry_shortened.wav" id="3_0w0nh"]
+[ext_resource type="AudioStream" uid="uid://7eqb0xw5iukb" path="res://assets/audio/crowdyelling.wav" id="4_i025g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dediq"]
 
@@ -40,6 +42,14 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_dediq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ChargeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0w0nh")
+volume_db = -10.0
+
+[node name="LossSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i025g")
+volume_db = -10.0
 
 [connection signal="timeout" from="ChargeCooldownTimer" to="." method="_on_charge_cooldown_timer_timeout"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

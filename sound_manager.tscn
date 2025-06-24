@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlq2di386qsxb"]
+
+[ext_resource type="Script" uid="uid://bydvwuyg5aqr3" path="res://sound_manager.gd" id="1_g5net"]
+[ext_resource type="AudioStream" uid="uid://cow5juj0b7kn8" path="res://assets/audio/02 - Ian Taylor - Gnome Village (GAME2).mp3" id="2_22ksp"]
+[ext_resource type="AudioStream" uid="uid://bp5c71p52vp51" path="res://assets/audio/14 - Ian Taylor - Medieval (TITLE).mp3" id="3_ndygv"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_g5net")
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_22ksp")
+volume_db = -80.0
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ndygv")
+autoplay = true
