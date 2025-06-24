@@ -6,4 +6,5 @@ func _ready() -> void:
 	var fade_tween: Tween = create_tween()
 	fade_tween.tween_property(fade_rect,"modulate",Color.TRANSPARENT,1.5)
 	await fade_tween.finished
-	Engine.time_scale = 3.0
+	if name == "EndScreen":
+		Engine.time_scale = 3.0

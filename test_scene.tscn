@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://rftkdff0hmit"]
+[gd_scene load_steps=51 format=4 uid="uid://rftkdff0hmit"]
 
 [ext_resource type="Texture2D" uid="uid://d1bluu2dwdvh" path="res://assets/background/towncobbles.png" id="1_6h1ut"]
 [ext_resource type="Texture2D" uid="uid://cspvlk5m5vvjn" path="res://assets/background/grass_sheet.png" id="1_rpuu0"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bcns1ukohqbfk" path="res://gate.png" id="25_22oil"]
 [ext_resource type="Texture2D" uid="uid://coy1ttph3njfn" path="res://assets/characters/knight.png" id="27_b11sm"]
 [ext_resource type="Texture2D" uid="uid://blxee44kotb8a" path="res://assets/buildings/blockade.png" id="27_mfkbt"]
+[ext_resource type="Texture2D" uid="uid://cm05nrc6pa3is" path="res://assets/buildings/table.png" id="30_7kp7o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5qgi0"]
 texture = ExtResource("1_6h1ut")
@@ -184,6 +185,9 @@ size = Vector2(384, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fq6b"]
 size = Vector2(544, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oy8sc"]
+size = Vector2(42, 34)
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
@@ -972,6 +976,316 @@ one_shot = true
 explosiveness = 1.0
 emission_shape = 3
 emission_rect_extents = Vector2(262, 16)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject19" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(14, -3255)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject19"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject19"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject19"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject20" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(183, -3162)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject20"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject20"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject20"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject21" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(156, -3336)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject21"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject21"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject21"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject22" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(84, -3069)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject22"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject22"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject22"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject23" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(747, -3247)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject23"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject23"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject23"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject24" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(806, -3020)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject24"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject24"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject24"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject25" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(900, -3177)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject25"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject25"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject25"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject26" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(1026, -3293)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject26"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject26"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject26"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject27" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(1063, -3122)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject27"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject27"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject27"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
+direction = Vector2(0, -2)
+initial_velocity_min = 230.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0
+
+[node name="DestructibleObject28" parent="." instance=ExtResource("4_2nij2")]
+position = Vector2(-108, -3103)
+
+[node name="Sprite2D" type="Sprite2D" parent="DestructibleObject28"]
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("30_7kp7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructibleObject28"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_oy8sc")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="DestructibleObject28"]
+material = SubResource("CanvasItemMaterial_k6its")
+position = Vector2(0, -1)
+emitting = false
+amount = 40
+texture = ExtResource("15_hiucn")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(16, 1)
 direction = Vector2(0, -2)
 initial_velocity_min = 230.0
 initial_velocity_max = 300.0

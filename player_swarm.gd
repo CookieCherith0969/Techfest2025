@@ -146,5 +146,12 @@ func fade_to_end():
 	await fade_tween.finished
 	get_tree().change_scene_to_file.call_deferred("res://end_screen.tscn")
 
+func fade_to_fail():
+	active = false
+	var fade_tween: Tween = create_tween()
+	fade_tween.tween_property(fade_rect,"modulate",Color.WHITE,1.5)
+	await fade_tween.finished
+	get_tree().change_scene_to_file.call_deferred("res://fail_screen.tscn")
+
 func _on_charge_cooldown_timer_timeout():
 	ring_sprite.modulate = active_color
