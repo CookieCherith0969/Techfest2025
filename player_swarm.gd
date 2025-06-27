@@ -13,6 +13,7 @@ var fade_rect: ColorRect
 @onready var charge_ring = $RingSprite/ChargeRing
 @onready var charge_sound = $ChargeSound
 @onready var loss_sound = $LossSound
+@onready var double_tap_timer: Timer = $DoubleTapTimer
 
 var charge_cooldown_length: float = 1.5
 var charge_windup_time: float = 0.3
@@ -42,6 +43,7 @@ var zoom_smooth_speed: float = 0.6
 var active: bool = false
 
 var using_mouse: bool = true
+var double_tap_length: float = 0.3
 
 func _ready():
 	instance = self
@@ -59,8 +61,21 @@ func _input(event):
 	elif event.is_action_released("MouseMove"):
 		mouse_moving = false
 	
-	if event.is_action_pressed("Charge") and charge_cooldown_timer.is_stopped():
-		charge()
+	if charge_cooldown_timer.is_stopped():
+		if event.is_action_pressed("Charge"):
+			charge()
+		elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			if double_tap_timer.is_stopped():
+				double_tap_timer.start(double_tap_length)
+			else:
+				charge()
+				double_tap_timer.stop()
+		#elif event is InputEventScreenTouch and event.pressed:
+		#	if double_tap_timer.is_stopped():
+		#		double_tap_timer.start(double_tap_length)
+		#	else:
+		#		charge()
+		#		double_tap_timer.stop()
 
 func charge():
 	charge_sound.play()

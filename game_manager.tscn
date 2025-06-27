@@ -27,9 +27,10 @@ offset_top = -55.0
 offset_right = 382.0
 offset_bottom = -2.0
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.27451, 0.27451, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_o2178")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "TIME: 180"
 
 [node name="PeopleLabel" type="Label" parent="."]

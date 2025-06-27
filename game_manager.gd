@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var people_label = $PeopleLabel
 
 var game_length: float = 120.0
+var warning_length: float = 30.0
 var time_remaining: float = game_length
 var score: int = -1
 
@@ -36,6 +37,10 @@ func _process(delta):
 	if !counting_down:
 		return
 	time_remaining -= delta
+	if time_remaining < warning_length:
+		time_label.add_theme_color_override("font_color",Color("ff0000"))
+	else:
+		time_label.add_theme_color_override("font_color",Color("ff4646"))
 	if time_remaining <= 0.0:
 		time_remaining = 0.0
 		stop_timing()

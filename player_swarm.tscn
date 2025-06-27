@@ -51,5 +51,8 @@ volume_db = -10.0
 stream = ExtResource("4_i025g")
 volume_db = -10.0
 
+[node name="DoubleTapTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="ChargeCooldownTimer" to="." method="_on_charge_cooldown_timer_timeout"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
